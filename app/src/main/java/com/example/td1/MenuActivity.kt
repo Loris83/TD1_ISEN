@@ -1,5 +1,6 @@
 package com.example.td1
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -25,6 +26,7 @@ class MenuActivity : AppCompatActivity() {
         val extraKey = "extraKey"
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,7 +37,10 @@ class MenuActivity : AppCompatActivity() {
         currentCategory = category ?: Category.STARTER
 
         //binding.menuTitle.text=categoryName(category ?: Category.STARTER)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title=categoryName()//(category ?: Category.STARTER)
+        supportActionBar?.setLogo(getDrawable(R.drawable.toolbar_shopping_cart))
+        supportActionBar?.setDisplayUseLogoEnabled(true);
         //if category is null then it takes the value of Category.STARTER
         //showDatas()
         //buttonListener()
@@ -52,7 +57,7 @@ class MenuActivity : AppCompatActivity() {
             params,
             {result ->
                 //SUCCESS OF REQUEST
-                Log.d("requests", result.toString(2))
+                //Log.d("requests", result.toString(2))
                 parseData(result.toString())
             },
             {error ->

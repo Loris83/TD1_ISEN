@@ -16,5 +16,6 @@
     <string name="buttonAdd">+</string>
     <string name="buttonMinus">-</string>
     <string name="totalButton">Total : 0€</string>
+    <string name="removeButton">Remove items</string>
 
 </resources>
